@@ -61,7 +61,7 @@ public class Credentials {
             String[] line = parseCredentials(scanner.nextLine());
             credentialsHM.put(line[0], line[1]);
         }
-        System.out.println("Loaded credentials...");
+        System.out.println("Loading credentials...");
         System.out.println(this);
     }
 
