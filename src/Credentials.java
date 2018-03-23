@@ -1,3 +1,5 @@
+import twitter4j.Twitter;
+import twitter4j.TwitterFactory;
 import twitter4j.conf.ConfigurationBuilder;
 
 import java.io.File;
@@ -9,9 +11,9 @@ public class Credentials {
 
     HashMap<String, String> credentialsHM = new HashMap<>();
     private static final String CONSUMER_KEY = "consumerKey";
-    private static final String CONSUMER_SECRET = "consumerKey";
-    private static final String ACCESS_TOKEN = "consumerKey";
-    private static final String ACCESS_TOKEN_SECRET = "consumerKey";
+    private static final String CONSUMER_SECRET = "consumerSecret";
+    private static final String ACCESS_TOKEN = "accessToken";
+    private static final String ACCESS_TOKEN_SECRET = "accessTokenSecret";
 
 
 
@@ -19,7 +21,7 @@ public class Credentials {
         loadCredentials();
     }
 
-    public void setCredentials() {
+    public Twitter setCredentials() {
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true)
                 .setOAuthConsumerKey(this.getValue(CONSUMER_KEY))
@@ -27,6 +29,8 @@ public class Credentials {
                 .setOAuthAccessToken(this.getValue(ACCESS_TOKEN))
                 .setOAuthAccessTokenSecret(this.getValue(ACCESS_TOKEN_SECRET));
 
+        TwitterFactory tf = new TwitterFactory(cb.build());
+        return tf.getInstance();
     }
 
     private String getValue(String key) {
@@ -37,7 +41,7 @@ public class Credentials {
     public String toString() {
         String val = "";
         for (HashMap.Entry<String,String> entry: credentialsHM.entrySet()){
-            val += entry.getKey() + "=" + entry.getValue() + "\n";
+            val += entry.getKey() + "=(" + entry.getValue() + ")\n";
         }
         return val;
     }
