@@ -23,7 +23,7 @@ public class TwitterHelper {
         }
     }
 
-    public List<Status> getUsersTweets(Twitter twit, String userName) {
+    private List<Status> getUsersTweets(Twitter twit, String userName) {
         List<Status> listOfTweets = new ArrayList<>();
         try {
             listOfTweets = twit.getUserTimeline(userName);
@@ -31,6 +31,14 @@ public class TwitterHelper {
             e.printStackTrace();
         }
         return listOfTweets;
+    }
+
+    public List<Status> enterUserNameForTweets(Twitter twitter) {
+        Scanner input = new Scanner (System.in);
+        System.out.println("Enter the Twitter handle of the person you want to creep on: ");
+        String user = input.nextLine();
+        return getUsersTweets(twitter, user);
+
     }
 
 

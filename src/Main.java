@@ -15,7 +15,13 @@ public class Main {
 //        th.enterNewStatus(twitterInstance);
 
 
-        List<Status> tweets = th.getUsersTweets(twitterInstance, "warrenrunk");
+
+//        List<Status> tweets = th.getUsersTweets(twitterInstance, "warrenrunk");
+//        for (Status s : tweets) {
+//            System.out.println(s.getText());
+//        }
+
+        List<Status> tweets = th.enterUserNameForTweets(twitterInstance);
         for (Status s : tweets) {
             System.out.println(s.getText());
         }

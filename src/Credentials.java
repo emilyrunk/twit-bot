@@ -41,7 +41,7 @@ public class Credentials {
     public String toString() {
         String val = "";
         for (HashMap.Entry<String,String> entry: credentialsHM.entrySet()){
-            val += entry.getKey() + "=(" + entry.getValue() + ")\n";
+            val += entry.getKey() + "=" + entry.getValue() + "\n";
         }
         return val;
     }
