@@ -1,10 +1,6 @@
 import twitter4j.*;
-import twitter4j.conf.ConfigurationBuilder;
 
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String args[]){
@@ -12,15 +8,12 @@ public class Main {
         Twitter twitterInstance = c.setCredentials();
 
         TwitterHelper th = new TwitterHelper();
-//        th.enterNewStatus(twitterInstance);
+        /* Command to enter new status */
+        th.enterNewStatus(twitterInstance);
 
 
 
-//        List<Status> tweets = th.getUsersTweets(twitterInstance, "warrenrunk");
-//        for (Status s : tweets) {
-//            System.out.println(s.getText());
-//        }
-
+        /* Command to get a user's tweets */
         List<Status> tweets = th.enterUserNameForTweets(twitterInstance);
         for (Status s : tweets) {
             System.out.println(s.getText());
