@@ -9,14 +9,14 @@ public class Main {
 
         TwitterHelper th = new TwitterHelper();
         /* Command to enter new status */
-        th.enterNewStatus(twitterInstance);
+        //th.enterNewStatus(twitterInstance);
 
 
 
         /* Command to get a user's tweets */
         List<Status> tweets = th.enterUserNameForTweets(twitterInstance);
         for (Status s : tweets) {
-            System.out.println(s.getText());
+            System.out.println(s.getCreatedAt() + s.getText());
         }
 
     }
