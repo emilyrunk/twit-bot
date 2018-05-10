@@ -21,3 +21,12 @@
 
 ###Ultimate Goal:
 Create bot to tweet tweets at scheduled times. Schedules can be edited.
+
+
+#### Notes:
+View all existing scheduled tweets
+
+Ask user to select or input a time via choices? (Date? Time?)
+Write input into schedule txt file
+Ask user to input what they want to write as tweet
+Write input into schedule txt file
