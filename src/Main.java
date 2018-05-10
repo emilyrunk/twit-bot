@@ -1,8 +1,7 @@
 import twitter4j.*;
 
-import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.List;
 
 public class Main {
     public static void main(String args[]){
@@ -22,9 +21,16 @@ public class Main {
 //        }
 
         /* Load file here */
+        ScheduleManager sm = new ScheduleManager();
         try {
-            FileManagement.loadFile();
+            sm.loadFile(sm.fileName);
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            sm.readFile();
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
