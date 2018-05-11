@@ -26,7 +26,14 @@ Create bot to tweet tweets at scheduled times. Schedules can be edited.
 #### Notes:
 View all existing scheduled tweets
 
+Write tweet object to schedule
+Parse object
+
 Ask user to select or input a time via choices? (Date? Time?)
 Write input into schedule txt file
 Ask user to input what they want to write as tweet
 Write input into schedule txt file
+
+Create log file and keep track of when it was tweeted, successful?, etc.
+
+Start with every hour tweet
