@@ -1,9 +1,14 @@
 import twitter4j.*;
 
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 
 public class Main {
+
+
     public static void main(String args[]){
         Credentials c = new Credentials();
         Twitter twitterInstance = c.setCredentials();
@@ -32,6 +37,22 @@ public class Main {
             sm.readFile();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+        }
+
+
+        /* Write tweet to schedule */
+
+        List<Status> tweetList = th.enterUserNameForTweets(twitterInstance);
+        for (Status s : tweetList) {
+            try {
+                BufferedWriter writer = new BufferedWriter(new FileWriter(sm.fileName));
+                
+                writer.append(s.getCreatedAt() + s.getText());
+                writer.flush();
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
