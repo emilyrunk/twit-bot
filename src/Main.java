@@ -45,8 +45,8 @@ public class Main {
         List<Status> tweetList = th.enterUserNameForTweets(twitterInstance);
         for (Status s : tweetList) {
             try {
-                BufferedWriter writer = new BufferedWriter(new FileWriter(sm.fileName));
-                
+                BufferedWriter writer = new BufferedWriter(new FileWriter(sm.fileName,true));
+                writer.newLine();
                 writer.append(s.getCreatedAt() + s.getText());
                 writer.flush();
                 writer.close();
