@@ -19,7 +19,7 @@
 - Save file
 
 ### Current Function: 
-- Takes schedule.txt and tweets the single line inside.
+- Takes schedule.txt and tweets each line as another tweet.
 
 
 ## Ultimate Goal:

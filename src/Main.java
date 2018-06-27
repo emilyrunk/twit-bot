@@ -34,9 +34,13 @@ public class Main {
         }
 
         try {
-            String tweet = sm.readFile();
-            twitterInstance.updateStatus(tweet);
-            System.out.println("Status updated: " + tweet);
+            List<String> tweetList = sm.readFile();
+            for (String tweet : tweetList){
+                twitterInstance.updateStatus(tweet);
+                System.out.println("Status updated: " + tweet);
+            }
+
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (TwitterException e) {

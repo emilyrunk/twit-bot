@@ -6,7 +6,7 @@ import twitter4j.TwitterFactory;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Scanner;
+import java.util.*;
 
 public class ScheduleManager {
 
@@ -25,17 +25,14 @@ public class ScheduleManager {
         }
     }
 
-    public String readFile() throws FileNotFoundException {
-        String line = new String("Empty queue");
-
+    public List<String> readFile() throws FileNotFoundException {
+        ArrayList<String> listOfTweets = new ArrayList<String>();
         Scanner fileScanner = new Scanner(fileName);
         while (fileScanner.hasNextLine()) {
-            line = fileScanner.nextLine();
 
+            String line = fileScanner.nextLine();
+            listOfTweets.add(line);
         }
-
-        return line;
+        return listOfTweets;
     }
-
-
 }
