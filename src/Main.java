@@ -34,25 +34,30 @@ public class Main {
         }
 
         try {
-            sm.readFile();
+            String tweet = sm.readFile();
+            twitterInstance.updateStatus(tweet);
+            System.out.println("Status updated: " + tweet);
         } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (TwitterException e) {
             e.printStackTrace();
         }
 
 
+
         /* Write tweet to schedule */
 
-        List<Status> tweetList = th.enterUserNameForTweets(twitterInstance);
-        for (Status s : tweetList) {
-            try {
-                BufferedWriter writer = new BufferedWriter(new FileWriter(sm.fileName,true));
-                writer.newLine();
-                writer.append(s.getCreatedAt() + s.getText());
-                writer.flush();
-                writer.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+//        List<Status> tweetList = th.enterUserNameForTweets(twitterInstance);
+//        for (Status s : tweetList) {
+//            try {
+//                BufferedWriter writer = new BufferedWriter(new FileWriter(sm.fileName,true));
+//                writer.newLine();
+//                writer.append(s.getCreatedAt() + s.getText());
+//                writer.flush();
+//                writer.close();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
     }
 }

@@ -18,8 +18,11 @@
 - Write to file
 - Save file
 
+### Current Function: 
+- Takes schedule.txt and tweets the single line inside.
 
-###Ultimate Goal:
+
+## Ultimate Goal:
 Create bot to tweet tweets at scheduled times. Schedules can be edited.
 
 
