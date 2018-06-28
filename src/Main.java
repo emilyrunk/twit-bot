@@ -40,20 +40,11 @@ public class Main {
             int rn = (int) (tweetList.size() * Math.random());
             String randomTweet = tweetList.get(rn);
             System.out.println("Status will update with: \nRandom Number: " + rn + "\n" + "Random Tweet: " + randomTweet);
-            twitterInstance.updateStatus(randomTweet);
-            System.out.println("Status will updated: " + randomTweet);
-
-//            for (String tweet : tweetList){
-//                twitterInstance.updateStatus(tweet);
-//                System.out.println("Status updated: " + tweet);
-//            }
-
+            th.tweetNewStatus(twitterInstance, randomTweet);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        } catch (TwitterException e) {
-            e.printStackTrace();
-        }
+
 
 
         /* Timer stuff */
