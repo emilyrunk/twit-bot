@@ -14,12 +14,12 @@
 
 
 #### To-Do:
-- Create / Get file
+- ~~Create / Get file~~
 - Write to file
 - Save file
 
 ### Current Function: 
-- Takes schedule.txt and tweets each line as another tweet.
+- Takes schedule.txt and tweets one random tweet.
 
 
 ## Ultimate Goal:
