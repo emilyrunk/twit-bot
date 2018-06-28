@@ -40,3 +40,7 @@ Write input into schedule txt file
 Create log file and keep track of when it was tweeted, successful?, etc.
 
 Start with every hour tweet
+
+
+##### Resources:
+https://www.journaldev.com/1050/java-timer-timertask-example

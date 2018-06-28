@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Main {
 
@@ -25,7 +27,7 @@ public class Main {
 //            System.out.println(s.getCreatedAt() + s.getText());
 //        }
 
-        /* Load file here */
+        /* Load file here and update status (Tweet) */
         ScheduleManager sm = new ScheduleManager();
         try {
             sm.loadFile(sm.fileName);
@@ -52,6 +54,28 @@ public class Main {
         } catch (TwitterException e) {
             e.printStackTrace();
         }
+
+
+        /* Timer stuff */
+        TimerTask timerTask = new TweetTimer();
+        Timer timer = new Timer(true);
+        timer.scheduleAtFixedRate(timerTask, 0, 10*1000);
+        System.out.println("TimerTask started");
+        //cancel after some time
+        try {
+            Thread.sleep(120000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        timer.cancel();
+        System.out.println("TimerTask cancelled");
+        try {
+            Thread.sleep(30000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
 
 
 
